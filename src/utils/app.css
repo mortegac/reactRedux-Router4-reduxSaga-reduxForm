@@ -1,0 +1,33 @@
+/* #1c3765  Color Logo Providencia  */
+
+.hero.is-providencia {
+    background-color: #1c3765;
+    color: white;
+}
+.nav-item img {
+    max-height: 50px;
+}
+
+.title {
+    color: #fff;
+}
+.subtitle{
+    color: #d0d0d0;
+}
+.nav-item a, a.nav-item{
+    color: #d0d0d0;
+}
+a.nav-item:hover {
+    color: #fff;
+}
+.tabs a:hover {
+    display: block;
+    background-color:rgba(28, 55, 101, 0.79);
+    color: #fff; 
+}
+
+.tabs li.is-active a {
+    display: block;
+    background-color:rgba(28, 55, 101, 0.79);
+    color: #fff; 
+}
