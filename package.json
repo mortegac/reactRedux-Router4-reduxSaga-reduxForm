@@ -13,8 +13,6 @@
     "react-ionicons": "^1.5.7",
     "react-moment": "^0.6.1",
     "react-redux": "^5.0.5",
-    "react-router-dom": "^4.1.2",
-    "react-router-redux": "next",
     "redux": "^3.7.2",
     "redux-form": "^7.0.3",
     "redux-saga": "^0.15.6"

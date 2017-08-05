@@ -12,9 +12,9 @@ export default {
   * fetch() {
     yield put({ type: 'FETCH_POST_START' })
     try {
-      const todosResponse = yield call(axios.get, 'https://jsonplaceholder.typicode.com/posts')
-      console.log('REsponse Post: ', todosResponse)
-      yield put({ type: 'FETCH_POST_SUCCESS', payload: todosResponse.data.slice(0, 10) })
+      const postResponse = yield call(axios.get, 'https://jsonplaceholder.typicode.com/posts')
+      // console.log('REsponse Post: ', postResponse)
+      yield put({ type: 'FETCH_POST_SUCCESS', payload: postResponse.data.slice(0, 10) })
     }catch(error) {
       yield put({ type: 'FETCH_POST_FAILED', error })
     }

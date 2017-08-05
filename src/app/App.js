@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import { Route } from 'react-router'
 
 //Pages
 import Header     from '../components/header'
@@ -21,8 +20,11 @@ class App extends Component {
     return (
         <div className='App' >
             <Header />
-            <Route exact path='/' component={ForoPage} />
-            <Route exact path='/administracion' component={AdminPage}/>
+            <ForoPage></ForoPage>
+            {
+              // <Route exact path='/' component={ForoPage} />
+              // <Route exact path='/administracion' component={AdminPage}/>
+            }
             <Novedades></Novedades> 
             <Footer />
         </div>

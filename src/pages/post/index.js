@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import Moment from 'react-moment'
 // import Ionicon from 'react-ionicons'
-import postList from '../../components/postlist/'
+import PostList   from '../../components/postlist'
+import HeaderIcon from '../../components/headerIcon'
 
 import '../../utils/app.css'
 const datePost = new Date(); 
@@ -12,61 +13,69 @@ class ForoPage extends Component {
     constructor(props) {
         super(props)
         const { fetchPost } = this.props
-        console.log(' :: fetchPost()  :: ', this.props.posts.data)
+        // console.log(' :: fetchPost()  :: ', this.props.posts.data)
         fetchPost()
   }
 
+  //data={posts.data} 
     render () {
-        // console.log( ':: CONTENEDOR ::')
-        // console.log( this.props )
+        console.log( ':: CONTENEDOR POST ::')
+        console.log( this.props )
         const {posts, fetchPost} = this.props
         return(
         <div>
             <section className="section">
                 <div className="container">
-                    <button onClick={fetchPost} type="button" disabled={posts.fetching}>
-                        {posts.fetching ? 'Cargando...' : 'Fetch todos'}
-                    </button>
 
-                    <h3>{posts.fetching ? 'Cargando...' : 'Fetch todos'}</h3>
-
+                <PostList data={posts.data} fetchPost={fetchPost}></PostList>
                     
-                    <postList data={posts.data} />
+                {
+                    // <button onClick={fetchPost} type="button" disabled={posts.fetching}>
+                    //     {posts.fetching ? 'Cargando...' : 'Fetch todos'}
+                    // </button>
+
+                    // <h3>{posts.fetching ? 'Cargando...' : 'Fetch todos'}</h3>
+
+                    }
+                  
+                  
 
 
-                    { posts.data.map(x => 
-                    <div className="columns" key={x.id}>
-                        <div className="column">
+                    { 
+                //         posts.data.map(x => 
+                //     <div className="columns" key={x.id}>
+                //         <div className="column">
 
-                            <article className="tile is-child notification is-warning">
-                                <p className="title" style={{color: 'rgba(0,0,0,0.8)'}}>{x.title}</p>
-                                <hr style={{ borderTopColor:'rgba(0,0,0,0.29)', margin: '5px 0' }} />
+                //             <article className="tile is-child notification is-warning">
+                //                 <p className="title" style={{color: 'rgba(0,0,0,0.8)'}}>{x.title}</p>
+                //                 <hr style={{ borderTopColor:'rgba(0,0,0,0.29)', margin: '5px 0' }} />
                                 
-                                    <ul style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px'}}>
-                                        <li>Fecha:  
-                                        { 
-                                            (x.date) ? 
-                                                x.date
-                                                :
-                                                <Moment format="DD - MM - YYYY  HH:mm">{{datePost}}</Moment>
-                                        }
-                                    </li>
-                                        <li>Usuario: { 
-                                            (x.user) ? 
-                                                x.user
-                                                :
-                                                'Anonimo'
-                                        }</li>
-                                    </ul>
-                                <p className="subtitle"></p>
-                                <div className="content" style= {{ display: 'inline-box' }}>
-                                    <p>{x.body}</p>
-                                </div>
-                            </article>
+                //                     <ul style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px'}}>
+                //                         <li>Fecha:  
+                //                         { 
+                //                             (x.date) ? 
+                //                                 x.date
+                //                                 :
+                //                                 <Moment format="DD - MM - YYYY  HH:mm">{{datePost}}</Moment>
+                //                         }
+                //                     </li>
+                //                         <li>Usuario: { 
+                //                             (x.user) ? 
+                //                                 x.user
+                //                                 :
+                //                                 'Anonimo'
+                //                         }</li>
+                //                     </ul>
+                //                 <p className="subtitle"></p>
+                //                 <div className="content" style= {{ display: 'inline-box' }}>
+                //                     <p>{x.body}</p>
+                //                 </div>
+                //             </article>
 
-                        </div>
-                    </div>
-                )}
+                //         </div>
+                //     </div>
+                // )
+            }
               
                     
                 </div>
