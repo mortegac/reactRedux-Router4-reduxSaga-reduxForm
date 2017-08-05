@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Ionicon from 'react-ionicons'
+import {Link} from 'react-router-dom';
 
 class Footer extends Component {
   render () {
@@ -11,8 +12,9 @@ class Footer extends Component {
                    
                         <div id="social">
                             <div className="nav-center">
-                                <a className="nav-item" href="https://github.com/mortegac" target="_blank"><Ionicon icon="ion-social-github" fontSize="28px" color="#69707a"/></a>
-                                <a className="nav-item" href="https://twitter.com/manuelortega_c" target="_blank"><Ionicon icon="ion-social-twitter" fontSize="28px" color="#69707a"/></a>
+                            <Link to="https://github.com/mortegac" className="nav-item" target="_blank"> <Ionicon icon="ion-social-github" fontSize="28px" color="#69707a"/> </Link>
+                            <Link to="https://twitter.com/manuelortega_c" className="nav-item" target="_blank"> <Ionicon icon="ion-social-twitter" fontSize="28px" color="#69707a"/> </Link>
+    
                             </div>
                     </div>
                 

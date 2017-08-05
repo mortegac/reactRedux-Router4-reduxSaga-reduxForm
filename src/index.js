@@ -23,16 +23,27 @@ const routerHistoryMiddleware = routerMiddleware(history)
 const sagaMiddleware = createSagaMiddleware()
 
 // let midlewares = [ routerHistoryMiddleware, sagaMiddleware ]
-let midlewares = [ routerHistoryMiddleware, sagaMiddleware ]
-
+// let midlewares = [ routerHistoryMiddleware, sagaMiddleware ]
+const midlewares = (routerHistoryMiddleware, sagaMiddleware) => 
+                    value => routerHistoryMiddleware(
+                                                      sagaMiddleware(value)
+                                                    )
 
 let store = createStore(
     rootReducers,
-    applyMiddleware(...midlewares)
+    applyMiddleware(
+                    midlewares(routerHistoryMiddleware, sagaMiddleware)
+                  )
 
 )
+// console.log('rootSagas', rootSagas)
+// console.log('store', store)
 
 sagaMiddleware.run(rootSagas)
+  .done.catch((error) => console.log(error));
+
+//store.runSaga = sagaMiddleware.run(rootSagas)
+// sagaMiddleware.run(rootSagas)
 
 
 ReactDOM.render(

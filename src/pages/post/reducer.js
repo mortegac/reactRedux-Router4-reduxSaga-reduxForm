@@ -1,7 +1,8 @@
 
 const initialState = {
     data : [
-        ],
+                
+    ],
     fetching: false,
     creating: false,}
 
