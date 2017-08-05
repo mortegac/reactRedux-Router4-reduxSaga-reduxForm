@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import Moment from 'react-moment'
 // import Ionicon from 'react-ionicons'
-// import CardList from '../components/cardList/cardList'
+import postList from '../../components/postlist/'
+
 import '../../utils/app.css'
 const datePost = new Date(); 
 
@@ -18,13 +19,22 @@ class ForoPage extends Component {
     render () {
         // console.log( ':: CONTENEDOR ::')
         // console.log( this.props )
-        const {posts} = this.props
+        const {posts, fetchPost} = this.props
         return(
         <div>
             <section className="section">
                 <div className="container">
+                    <button onClick={fetchPost} type="button" disabled={posts.fetching}>
+                        {posts.fetching ? 'Cargando...' : 'Fetch todos'}
+                    </button>
+
                     <h3>{posts.fetching ? 'Cargando...' : 'Fetch todos'}</h3>
-                { posts.data.map(x => 
+
+                    
+                    <postList data={posts.data} />
+
+
+                    { posts.data.map(x => 
                     <div className="columns" key={x.id}>
                         <div className="column">
 
@@ -57,6 +67,7 @@ class ForoPage extends Component {
                         </div>
                     </div>
                 )}
+              
                     
                 </div>
             </section>
@@ -73,10 +84,11 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchPost: () => { 
-            console.log(' :: dispatch: type: FETCH_POST  :: ')
-            dispatch({ type: 'FETCH_POST' })
-  },
+    fetchPost: () => dispatch({ type: 'FETCH_POST' }),
+//     fetchPost: () => { 
+//             console.log(' :: dispatch: type: FETCH_POST  :: ')
+//             dispatch({ type: 'FETCH_POST' })
+//   },
 
 //   submit: payload => dispatch({ type: 'ADD_UNIVERSIDAD', payload: { ...payload, id: getId(), edit: false } }),
 //   update: (payload, id) => {

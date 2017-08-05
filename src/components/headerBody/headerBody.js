@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 
-// import HeaderLogo from '../../components/headerLogo'
-
-
 class HeaderBody extends Component {
   render () {
     return (
@@ -10,9 +7,9 @@ class HeaderBody extends Component {
                 <div className="container">
                 <div className="columns is-vcentered">
                     <div className="column">
-                        <p className="title" style={{ color: '#fff'}}><strong>DIRECTORIO TELEFÓNICO</strong></p>
+                        <p className="title" style={{ color: '#fff'}}><strong>PRUEBA CURSO REACT</strong></p>
                         <p className="subtitle">
-                        - Directorio de Funcionarios y unidades Municipales - 
+                        - POST INGRESADOS- 
                         </p>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import post from '../pages/post/reducer'
 
 
 const rootReducers = combineReducers({
+    
     posts: post,
     router: routerReducer,
     form: formReducer,
