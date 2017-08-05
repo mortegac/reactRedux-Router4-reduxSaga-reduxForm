@@ -20,7 +20,11 @@ export default {
     }
 
   },
-// export default {
+}
+
+
+
+  // export default {
 //   * fetch() {
 //     yield put({ type: 'FETCH_POST_START' })
 //     try {
@@ -35,7 +39,7 @@ export default {
 
 //   }
 
-}
+
 
 
 
