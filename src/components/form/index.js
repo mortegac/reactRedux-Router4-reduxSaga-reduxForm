@@ -6,25 +6,24 @@ import './form.css'
 
 class frm extends Component {
 
-    editPost
-
   render() {
         console.log('<FRM> this.props:', this.props)
     const { handleSubmit, data } = this.props
     return (
         <div>
-        { data.name ? <p>EXISTE {data.name}</p> : <p>NO EXISTE {data.name}</p>}
+        { //viewForm ? <p>EXISTE {viewForm}</p> : <p>NO EXISTE {viewForm}</p>
+    }
             <form onSubmit={handleSubmit}>
                 <div className="field">
-                    <label className="label">Titulo</label>
+                    <label className="label">Titulo [id: {data.id}]</label>
                     <div className="control has-icons-left has-icons-right">
-                        <input className="input is-success" type="text" placeholder="Titulos del Post" />
+                        <input className="input is-success" type="text" value={data.title} placeholder="Titulos del Post" />
                     </div>
                 </div>
                 <div className="field">
                     <label className="label">Mensaje</label>
                     <div className="control has-icons-left has-icons-right">
-                        <textarea className="textarea is-primary" type="text" placeholder="Detalle del Post"></textarea>
+                        <textarea className="textarea is-primary" type="text" placeholder="Detalle del Post">{data.body}</textarea>
                     </div>
                 </div>
                 <div className="field">
@@ -33,7 +32,6 @@ class frm extends Component {
                             <p className="control">
                                 <a className="button is-primary" style={{ marginRight:'5px'}}>Grabar</a>
                                 <a className="button is-warning" style={{ marginRight:'5px'}}>Eliminar</a>
-                                <a className="button">Cerrar</a>
                             </p>
                         </div>
                         

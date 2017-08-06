@@ -42,24 +42,19 @@ class PostList extends Component {
                                         </ul>
                                     <p className="subtitle"></p>
                                     <div className="content" style= {{ display: 'inline-box' }}>
-                                        <p>{x.body}</p>
+                                        
                                         { data.showAdmin ? 
-                                            <code>No editable</code>
+                                            <div><p>{x.body}</p>
+                                                <code>No editable</code></div>
                                             :
                                             <div>
-                                                <a className="button is-primary" onClick={ (e) => { e.preventDefault() ; editPost({...x, showForm:'true'}) } }>Editar</a>
                                                 <div className="content" style= {{ display: 'inline-box', backgroundColor:'#fff', padding:'10px 10px', border:'1px solid rgb(191, 188, 188)', borderRadius:'10px', marginTop:'10px'}}>
-                                                    {editPost ? <Form data={editPost}></Form> : <p>...</p> }
-                                                </div>
+                                                    <Form data={x}></Form>
+                                                </div> 
                                             </div>
 
                                         }
-                                    </div>
-                                    {
-                                        //Validar si se edita o no
-                                    }
-                                   
-                                    
+                                    </div>  
                                 </article>
 
                             </div>
