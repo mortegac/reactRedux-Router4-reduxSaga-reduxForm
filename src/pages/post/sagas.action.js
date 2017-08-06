@@ -14,12 +14,21 @@ export default {
     try {
       const postResponse = yield call(axios.get, 'https://jsonplaceholder.typicode.com/posts')
       // console.log('REsponse Post: ', postResponse)
-      yield put({ type: 'FETCH_POST_SUCCESS', payload: postResponse.data.slice(0, 10) })
+      yield put({ type: 'FETCH_POST_SUCCESS', payload: postResponse.data.slice(0, 5) })
     }catch(error) {
       yield put({ type: 'FETCH_POST_FAILED', error })
     }
-
   },
+  *menuAdmin() {
+    yield put({ type: 'MENU_ADMIN' })
+  },
+  
+  *menuPost() {
+    yield put({ type: 'MENU_POST' })
+  },
+
+  
+
 }
 
 

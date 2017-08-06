@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import Frm from '../../components/form/'
-
+import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
 import Moment from 'react-moment'
-import postList from '../../components/postlist/'
+// import Ionicon from 'react-ionicons'
+import PostList   from '../../components/postlist'
+import Frm from '../../components/form'
 
 import '../../utils/app.css'
 const datePost = new Date(); 
@@ -12,66 +12,25 @@ const datePost = new Date();
   
 
 class AdminPage extends Component {
-   constructor(props) {
+    constructor(props) {
         super(props)
         const { fetchPost } = this.props
+        // console.log(' :: fetchPost()  :: ', this.props.posts.data)
         fetchPost()
   }
 
     render () {
-        // console.log( ':: CONTENEDOR ::')
-        // console.log( this.props )
         const {posts, fetchPost} = this.props
         return(
             <div >
                 <section className="section">
                     <div className="container">
-                         <div className="tabs is-centered  is-small">
-                          ADMINISTRACION
-                        </div>
                         <div className="columns">
                             <div className="column is-three-quarters">
-                                { posts.data.map(x => 
-                                    <div className="columns" key={x.id}>
-                                        <div className="column">
-
-                                            <article className="tile is-child notification is-warning">
-                                                <p className="title" style={{color: 'rgba(0,0,0,0.8)'}}>{x.title}</p>
-                                                <hr style={{ borderTopColor:'rgba(0,0,0,0.29)', margin: '5px 0' }} />
-                                                
-                                                    <ul style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px'}}>
-                                                        <li>Fecha:  
-                                                        { 
-                                                            (x.date) ? 
-                                                                x.date
-                                                                :
-                                                                <Moment format="DD - MM - YYYY  HH:mm">{{datePost}}</Moment>
-                                                        }
-                                                    </li>
-                                                        <li>Usuario: { 
-                                                            (x.user) ? 
-                                                                x.user
-                                                                :
-                                                                'Anonimo'
-                                                        }</li>
-                                                    </ul>
-                                                {
-                                                    <div className="field">
-                                                        <div className="control">
-                                                        <br/>
-                                                            <button className="button is-primary">Editar Post</button>
-                                                        </div>
-                                                    </div>
-                                                //     <p className="subtitle"></p>
-                                                // <div className="content" style= {{ display: 'inline-box' }}>
-                                                //     <p>{x.body}</p>
-                                                // </div>
-                                                }
-                                            </article>
-
-                                        </div>
-                                    </div>
-                                )}
+                                <div className="columns is-vcentered">
+                                    <div className="column"><p className="title"><strong>Administrador de Post</strong></p></div>
+                                </div>
+                                <PostList data={posts.data}></PostList>
 
                             </div>
                             <div className="column">

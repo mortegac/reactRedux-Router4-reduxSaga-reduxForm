@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 
 //Pages
-import Header     from '../components/header'
-import ForoPage   from '../pages/post/'
-import AdminPage  from '../pages/admin/'
-import Novedades  from '../components/novedades/novedades'
-import Footer     from '../components/footer/'
+// import Header     from '../components/header'
+ import ForoPage   from '../pages/post/'
+// import AdminPage  from '../pages/admin/'
+// import Novedades  from '../components/novedades/novedades'
+// import Footer     from '../components/footer/'
 
 //styles
 import '../utils/bulma.css';
@@ -19,14 +19,9 @@ class App extends Component {
 
     return (
         <div className='App' >
-            <Header />
+            
             <ForoPage></ForoPage>
-            {
-              // <Route exact path='/' component={ForoPage} />
-              // <Route exact path='/administracion' component={AdminPage}/>
-            }
-            <Novedades></Novedades> 
-            <Footer />
+            
         </div>
     );
   }

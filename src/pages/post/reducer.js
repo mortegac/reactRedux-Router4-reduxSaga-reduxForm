@@ -1,6 +1,7 @@
 
 const initialState = {
     data : [],
+    showAdmin: false,
     fetching: false,
     creating: false
   }
@@ -17,11 +18,19 @@ const initialState = {
 
  */
 
-
 export default function post (state = initialState, action) {
     // console.log('action:',action)
     // console.log('state:',state)
   switch(action.type) {
+    case 'MENU_ADMIN':
+      // console.log('Show Admin')
+      return {
+         ...state,
+        showAdmin: !action.payload,
+      }
+
+
+
     case 'FETCH_POST_START':
       return {
         ...state,

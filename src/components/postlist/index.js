@@ -10,14 +10,8 @@ class PostList extends Component {
        const {data} = this.props
     return (
        <div>
-        <div className="columns is-vcentered">
-            <div className="column">
-                <p className="title"><strong>Listado de Post</strong></p>
-            </div>
-        </div>
-       
         {   data.fetching ? 
-                <img src={loading} alt="Loading"  style={{width:'210px', height:'210px'}}/>
+                <p>...</p>
                 : 
                 <div>
                     { data.map(x =>  

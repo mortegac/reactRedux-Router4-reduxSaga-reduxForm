@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
 import { Field, reduxForm, change } from 'redux-form'
-
+import './form.css'
 
 class frm extends Component {
   render() {
@@ -18,17 +18,18 @@ class frm extends Component {
                 <div className="field">
                     <label className="label">Mensaje</label>
                     <div className="control has-icons-left has-icons-right">
-                        <input className="input is-success" type="text" placeholder="Text input" value="Mensaje" />
+                        <textarea className="textarea is-primary" type="text" placeholder="Mensaje"></textarea>
+
                     </div>
                 </div>
                 <div className="field">
                       <div className="control">
-                        <br/>
-                        <button className="button is-primary">Submit</button>
+                            <button className="button is-primary">Submit</button>
+                        
                     </div>
                 </div>
             </form>
-     
+            <br/>     
       </div>
     )
   }

@@ -2,9 +2,14 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
 import Moment from 'react-moment'
-// import Ionicon from 'react-ionicons'
+
+import Header     from '../../components/header'
+import Novedades  from '../../components/novedades/novedades'
+import Footer     from '../../components/footer/'
+
 import PostList   from '../../components/postlist'
-import HeaderIcon from '../../components/headerIcon'
+import Form from '../../components/form'
+import Loading    from '../../components/loading'
 
 import '../../utils/app.css'
 const datePost = new Date(); 
@@ -12,74 +17,56 @@ const datePost = new Date();
 class ForoPage extends Component {
     constructor(props) {
         super(props)
-        const { fetchPost } = this.props
-        // console.log(' :: fetchPost()  :: ', this.props.posts.data)
+        const fetchPost = this.props.fetchPost
         fetchPost()
   }
 
-  //data={posts.data} 
+  //{ showAdmin && style={{disabled:'disabled'}}}
     render () {
-        console.log( ':: CONTENEDOR POST ::')
-        console.log( this.props )
-        const {posts, fetchPost} = this.props
+        // console.log( ':: CONTENEDOR POST ::')
+        // console.log( this.props )
+        const {posts, fetchPost, viewMenu} = this.props
         return(
         <div>
-            <section className="section">
-                <div className="container">
+            <Header />
 
-                <PostList data={posts.data} fetchPost={fetchPost}></PostList>
+                <section className="section">
+                    <div className="container">
+
+                    <div className="columns">
+                        <div className="column">
+                            { posts.showAdmin ? 
+                                    <p className="title"><strong>Listado de Post</strong></p>
+                                    :
+                                    <p className="title"><strong>Administrador  de Post</strong></p>
+                            }
+
+                        </div>
+                        <div className="column is-one-quarter">
+                            <div className="field is-grouped">
+                                <p className="control">
+                                    <a className="button" 
+                                        onClick={ (e) => { e.preventDefault() ; viewMenu(false) } }>Post</a> 
+                                    <a className="button is-danger"
+                                         onClick={ (e) => { e.preventDefault() ; viewMenu(true) } }>Administrar post</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     
-                {
-                    // <button onClick={fetchPost} type="button" disabled={posts.fetching}>
-                    //     {posts.fetching ? 'Cargando...' : 'Fetch todos'}
-                    // </button>
-
-                    // <h3>{posts.fetching ? 'Cargando...' : 'Fetch todos'}</h3>
-
-                    }
-                  
-                  
-
-
-                    { 
-                //         posts.data.map(x => 
-                //     <div className="columns" key={x.id}>
-                //         <div className="column">
-
-                //             <article className="tile is-child notification is-warning">
-                //                 <p className="title" style={{color: 'rgba(0,0,0,0.8)'}}>{x.title}</p>
-                //                 <hr style={{ borderTopColor:'rgba(0,0,0,0.29)', margin: '5px 0' }} />
-                                
-                //                     <ul style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px'}}>
-                //                         <li>Fecha:  
-                //                         { 
-                //                             (x.date) ? 
-                //                                 x.date
-                //                                 :
-                //                                 <Moment format="DD - MM - YYYY  HH:mm">{{datePost}}</Moment>
-                //                         }
-                //                     </li>
-                //                         <li>Usuario: { 
-                //                             (x.user) ? 
-                //                                 x.user
-                //                                 :
-                //                                 'Anonimo'
-                //                         }</li>
-                //                     </ul>
-                //                 <p className="subtitle"></p>
-                //                 <div className="content" style= {{ display: 'inline-box' }}>
-                //                     <p>{x.body}</p>
-                //                 </div>
-                //             </article>
-
-                //         </div>
-                //     </div>
-                // )
-            }
-              
+                    { posts.showAdmin ? <p></p> : <Form></Form> }
+                    { posts.fetching && <Loading></Loading>   }
                     
-                </div>
-            </section>
+                    
+
+                    
+                    <PostList data={posts.data}></PostList>
+                        
+                    </div>
+                </section>
+            
+            <Novedades></Novedades> 
+            <Footer />
         </div>
         )
     }
@@ -94,6 +81,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     fetchPost: () => dispatch({ type: 'FETCH_POST' }),
+    viewMenu: (view) => { 
+                            dispatch({ type:'MENU_ADMIN', payload: view }) 
+                            // console.log("Llamo a viewMenu: ", view) 
+                        },
+        
+    
+    // menuAdmin: () => dispatch({ type: 'MENU_ADMIN' }),
+    // menuPost: () => dispatch({ type: 'MENU_POST' }),
+    
 //     fetchPost: () => { 
 //             console.log(' :: dispatch: type: FETCH_POST  :: ')
 //             dispatch({ type: 'FETCH_POST' })
