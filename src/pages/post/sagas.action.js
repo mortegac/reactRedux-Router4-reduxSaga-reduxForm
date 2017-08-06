@@ -22,6 +22,11 @@ export default {
   *menuAdmin() {
     yield put({ type: 'MENU_ADMIN' })
   },
+  // *editPost() {
+  //   yield put({ type: 'EDIT_POST_ACTION' })
+  // },
+
+  
   
   // *menuPost() {
   //   yield put({ type: 'MENU_POST' })

@@ -3,6 +3,9 @@ import action from './sagas.action'
 
 export default function* rootSagas() {
   yield takeEvery('FETCH_POST', action.fetch)
+  
+  // yield takeEvery('EDIT_POST', action.editPost)
+  
   // yield takeEvery('MENU_CHANGE', action.menuAdmin)
   // yield takeEvery('MENU_POST', action.menuPost)
 

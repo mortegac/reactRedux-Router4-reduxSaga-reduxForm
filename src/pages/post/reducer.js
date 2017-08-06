@@ -1,6 +1,7 @@
 
 const initialState = {
     data : [],
+    editPost: true,
     showAdmin: true,
     fetching: false,
     creating: false
@@ -20,7 +21,7 @@ const initialState = {
 export default function post (state = initialState, action) {
   switch(action.type) {
     case 'MENU_ADMIN':
-      return {
+      return {       
          ...state,
         showAdmin: !action.payload,
       }
@@ -48,7 +49,8 @@ export default function post (state = initialState, action) {
     case 'EDIT_POST':
       return {
         ...state,
-        data: state.data.map(x => x.id === action.payload.id ? { ...x, ...action.payload } : x)
+        editPost: !action.payload,
+        //data: state.data.map(x => x.id === action.payload.id ? { ...x, ...action.payload } : x)
       }
     // case 'DELETE_POST':
     //   return {

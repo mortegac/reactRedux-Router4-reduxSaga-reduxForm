@@ -54,8 +54,6 @@ class ForoPage extends Component {
                         </div>
                     </div>
                     
-                    { //posts.showAdmin ? <p></p> : <Form></Form> 
-                    }
                     { posts.fetching && <Loading></Loading>   }
                     
                     

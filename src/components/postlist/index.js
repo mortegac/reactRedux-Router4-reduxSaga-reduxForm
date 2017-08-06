@@ -8,7 +8,7 @@ const datePost = new Date();
 class PostList extends Component {
   render () {
        console.log( this.props )
-       const {data, editPost} = this.props
+       const {data, editPost, showForm} = this.props
       
     return (
        <div>
@@ -47,9 +47,9 @@ class PostList extends Component {
                                             <code>No editable</code>
                                             :
                                             <div>
-                                                <a className="button is-primary" onClick={ (e) => { e.preventDefault() ; editPost({...x, status:'true'}) } }>Editar</a>
+                                                <a className="button is-primary" onClick={ (e) => { e.preventDefault() ; editPost({...x, showForm:'true'}) } }>Editar</a>
                                                 <div className="content" style= {{ display: 'inline-box', backgroundColor:'#fff', padding:'10px 10px', border:'1px solid rgb(191, 188, 188)', borderRadius:'10px', marginTop:'10px'}}>
-                                                    <Form></Form>
+                                                    {editPost ? <Form data={editPost}></Form> : <p>...</p> }
                                                 </div>
                                             </div>
 

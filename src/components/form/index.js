@@ -5,10 +5,15 @@ import { reduxForm } from 'redux-form'
 import './form.css'
 
 class frm extends Component {
+
+    editPost
+
   render() {
-    const { handleSubmit } = this.props
+        console.log('<FRM> this.props:', this.props)
+    const { handleSubmit, data } = this.props
     return (
         <div>
+        { data.name ? <p>EXISTE {data.name}</p> : <p>NO EXISTE {data.name}</p>}
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Titulo</label>
