@@ -29,14 +29,14 @@ describe('Fetch actions', () => {
                 'No retorna los Post'
             )
 
-            //Failed
-            // assert.deepEqual(
-            //     gen.throw('Provoco Error').value,
-            //     put({
-            //     type: 'FETCH_POST_FAILED',
-            //     error: 'Fallo',
-            //     }), 'No dispara el evento que manejo el error'
-            // )
+            //Provoco un error para testearlo
+            assert.deepEqual(
+                gen.throw('Provoco-Error').value,
+                put({
+                type: 'FETCH_POST_FAILED',
+                error: 'Provoco-Error',
+                }), 'No se está disparando el evento que maneja el error'
+            )
 
 
         })
