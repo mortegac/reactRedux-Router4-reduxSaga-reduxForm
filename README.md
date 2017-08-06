@@ -1,11 +1,29 @@
 
 ## PRUEBA FINAL 
 
-Utilizando tecnologias 
-    React Redux  
-    Router4 
-    ReduxSaga 
-    Redux Form
+
+### Used Technology
+
+* React
+* Redux  
+* ReduxSaga 
+* Redux Form
+* bulma css
+* api consumes: [Jsonplaceholder](https://jsonplaceholder.typicode.com/posts)
+
+
+### Installing
+
+```
+yarn install or npm install
+```
+
+### Running App
+
+```
+yarn start or npm start
+```
+
 
 ### Pantalla Post  
 ![Screenshot](post.png)
