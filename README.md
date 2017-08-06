@@ -8,7 +8,7 @@ Utilizando tecnologias
     Redux Form
 
 ### Pantalla Post  
-![Screenshot](admin.png)
+![Screenshot](post.png)
 
 ### Pantalla Administrador
-![Alt text](post.png?raw=true "Title")
+![Alt text](admin.png?raw=true "Title")
