@@ -1,20 +1,22 @@
 import React, {Component} from 'react'
-import Ionicon from 'react-ionicons'
+// import Ionicon from 'react-ionicons'
 import Moment from 'react-moment'
-import loading from '../../utils/images/loading2.gif'
+// import loading from '../../utils/images/loading2.gif'
+import Form from '../form'
 const datePost = new Date(); 
 
 class PostList extends Component {
   render () {
        console.log( this.props )
-       const {data} = this.props
+       const {data, editPost} = this.props
+      
     return (
        <div>
         {   data.fetching ? 
                 <p>...</p>
                 : 
                 <div>
-                    { data.map(x =>  
+                    { data.data.map(x =>  
                         <div className="columns" key={x.id}>
                             <div className="column">
 
@@ -41,7 +43,23 @@ class PostList extends Component {
                                     <p className="subtitle"></p>
                                     <div className="content" style= {{ display: 'inline-box' }}>
                                         <p>{x.body}</p>
+                                        { data.showAdmin ? 
+                                            <code>No editable</code>
+                                            :
+                                            <div>
+                                                <a className="button is-primary" onClick={ (e) => { e.preventDefault() ; editPost({...x, status:'true'}) } }>Editar</a>
+                                                <div className="content" style= {{ display: 'inline-box', backgroundColor:'#fff', padding:'10px 10px', border:'1px solid rgb(191, 188, 188)', borderRadius:'10px', marginTop:'10px'}}>
+                                                    <Form></Form>
+                                                </div>
+                                            </div>
+
+                                        }
                                     </div>
+                                    {
+                                        //Validar si se edita o no
+                                    }
+                                   
+                                    
                                 </article>
 
                             </div>

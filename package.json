@@ -1,6 +1,7 @@
 {
   "name": "prueba-final",
-  "version": "0.1.0",
+   "homepage" : "http://www.wub.cl/",
+   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",

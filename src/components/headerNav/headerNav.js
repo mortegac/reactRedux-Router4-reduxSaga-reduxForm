@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 
 import HeaderLogo from '../../components/headerLogo/headerLogo'
 import HeaderIcon from '../../components/headerIcon'
-import HeaderMenu from '../../components/headerMenu'
-
+// import HeaderMenu from '../../components/headerMenu'
+//<HeaderMenu></HeaderMenu>
 
 class HeaderNav extends Component {
   render () {
@@ -13,7 +13,6 @@ class HeaderNav extends Component {
             <nav className="nav">
 
                 <HeaderLogo></HeaderLogo>
-                <HeaderMenu></HeaderMenu>
                 <HeaderIcon></HeaderIcon>
                 
               </nav>

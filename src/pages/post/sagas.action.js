@@ -23,9 +23,9 @@ export default {
     yield put({ type: 'MENU_ADMIN' })
   },
   
-  *menuPost() {
-    yield put({ type: 'MENU_POST' })
-  },
+  // *menuPost() {
+  //   yield put({ type: 'MENU_POST' })
+  // },
 
   
 

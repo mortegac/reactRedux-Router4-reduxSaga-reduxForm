@@ -1,18 +1,18 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
-import Moment from 'react-moment'
+// import Moment from 'react-moment'
 
 import Header     from '../../components/header'
 import Novedades  from '../../components/novedades/novedades'
 import Footer     from '../../components/footer/'
 
 import PostList   from '../../components/postlist'
-import Form from '../../components/form'
+// import Form from '../../components/form'
 import Loading    from '../../components/loading'
 
 import '../../utils/app.css'
-const datePost = new Date(); 
+// const datePost = new Date(); 
 
 class ForoPage extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class ForoPage extends Component {
     render () {
         // console.log( ':: CONTENEDOR POST ::')
         // console.log( this.props )
-        const {posts, fetchPost, viewMenu} = this.props
+        const {posts, viewMenu, editPost} = this.props
         return(
         <div>
             <Header />
@@ -54,13 +54,14 @@ class ForoPage extends Component {
                         </div>
                     </div>
                     
-                    { posts.showAdmin ? <p></p> : <Form></Form> }
+                    { //posts.showAdmin ? <p></p> : <Form></Form> 
+                    }
                     { posts.fetching && <Loading></Loading>   }
                     
                     
 
                     
-                    <PostList data={posts.data}></PostList>
+                    <PostList data={posts} editPost={editPost}></PostList>
                         
                     </div>
                 </section>
@@ -84,6 +85,10 @@ const mapDispatchToProps = dispatch => ({
     viewMenu: (view) => { 
                             dispatch({ type:'MENU_ADMIN', payload: view }) 
                             // console.log("Llamo a viewMenu: ", view) 
+                        },
+    editPost: (postEdito) => { 
+                            dispatch({ type:'EDIT_POST', payload: postEdito }) 
+                            console.log("Post A editar: ", postEdito) 
                         },
         
     

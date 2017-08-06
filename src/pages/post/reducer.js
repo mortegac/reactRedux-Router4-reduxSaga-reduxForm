@@ -1,11 +1,10 @@
 
 const initialState = {
     data : [],
-    showAdmin: false,
+    showAdmin: true,
     fetching: false,
     creating: false
   }
-
 
 /**
  * id: String
@@ -19,11 +18,8 @@ const initialState = {
  */
 
 export default function post (state = initialState, action) {
-    // console.log('action:',action)
-    // console.log('state:',state)
   switch(action.type) {
     case 'MENU_ADMIN':
-      // console.log('Show Admin')
       return {
          ...state,
         showAdmin: !action.payload,
@@ -49,13 +45,11 @@ export default function post (state = initialState, action) {
         error: action.error
       }
 
-
-
-    // case 'EDIT_POST':
-    //   return {
-    //     ...state,
-    //     data: state.data.map(x => x.id === action.payload.id ? { ...x, ...action.payload } : x)
-    //   }
+    case 'EDIT_POST':
+      return {
+        ...state,
+        data: state.data.map(x => x.id === action.payload.id ? { ...x, ...action.payload } : x)
+      }
     // case 'DELETE_POST':
     //   return {
     //     ...state,

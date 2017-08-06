@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux'
-import { reducer as formReducer } from 'redux-form'
+// import { reducer as formReducer } from 'redux-form'
 import createSagaMiddleware from 'redux-saga'
 
 import { Provider } from 'react-redux'

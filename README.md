@@ -7,3 +7,8 @@ Utilizando tecnologias
     ReduxSaga 
     Redux Form
 
+### Pantalla Post  
+![Screenshot](admin.png)
+
+### Pantalla Administrador
+![Alt text](post.png?raw=true "Title")
