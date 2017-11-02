@@ -1,5 +1,5 @@
 
-## PRUEBA FINAL 
+## REACT - REDUX 
 
 Utilizando tecnologias 
     React Redux  
